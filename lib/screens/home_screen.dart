@@ -28,6 +28,7 @@ class HomeScreen extends StatelessWidget {
                     itemCount: threadslist.length,
                     itemBuilder: (context, index) {
                       return Thread(
+                        threadId: threadslist[index].threadId,
                         profileImg: threadslist[index].profileImg,
                         name: threadslist[index].name,
                         time: threadslist[index].time,

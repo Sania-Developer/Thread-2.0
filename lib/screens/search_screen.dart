@@ -3,8 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:instagram_thread/models/searchlist.dart';
 import 'package:provider/provider.dart';
-
-import '../models/searchModel.dart';
+import 'package:instagram_thread/providers/searchFilterl.dart';
 import '../util/colors.dart';
 
 class SearchScreen extends StatelessWidget {

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:instagram_thread/providers/likeProvider.dart';
 import 'package:instagram_thread/util/colors.dart';
 import 'package:instagram_thread/widgets/bottom_navigation.dart';
+import 'package:provider/provider.dart';
 
 
 void main() {
@@ -15,10 +17,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(useMaterial3: true, scaffoldBackgroundColor: AppColor.background_color),
-      home: BottomNavBar(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<LikeProvider>(create: (context) => LikeProvider(),)
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(useMaterial3: true, scaffoldBackgroundColor: AppColor.background_color),
+        home: BottomNavBar(),
+      ),
     );
   }
 }

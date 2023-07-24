@@ -180,6 +180,7 @@ class ProfileScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         Thread(
+                          threadId: 0,
                           profileImg: 'images/profile.png',
                           name: 'Sania Khan',
                           time: '30m',
@@ -193,6 +194,7 @@ class ProfileScreen extends StatelessWidget {
                           postImage: 'https://scontent.cdninstagram.com/v/t51.2885-15/357998989_1492734448139387_2384263922147350434_n.jpg?stp=dst-jpg_e35_s480x480&_nc_ht=scontent.cdninstagram.com&_nc_cat=111&_nc_ohc=zKhdCyuq1A0AX_nCo9W&edm=APs17CUBAAAA&ccb=7-5&ig_cache_key=MzE0MTEyNzYxNDYwMzg5NzkyOA%3D%3D.2-ccb7-5&oh=00_AfA24mXYzzIlRHHX7ntDyQ3GgXQnsayz0Gfo52owOtLSNA&oe=64AD9A72&_nc_sid=10d13b',
                         ),
                         Thread(
+                          threadId: 1,
                           profileImg: 'images/profile.png',
                           name: 'Sania Khan',
                           time: '1h',

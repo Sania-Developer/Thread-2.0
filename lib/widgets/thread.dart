@@ -16,6 +16,7 @@ class Thread extends StatelessWidget {
         this.postImage,
       required this.isImage,
       required this.isMe,
+      required this.threadId,
       })
       : super(key: key);
 
@@ -26,6 +27,7 @@ class Thread extends StatelessWidget {
   String? postImage;
   int likes;
   int replies;
+  int threadId;
   bool verified;
   bool isImage;
   bool isMe;
@@ -43,7 +45,7 @@ class Thread extends StatelessWidget {
             isMe: isMe,
           ),
           const SizedBox(height: 8.0),
-          ThreadContent(contentText: contentText,postImage: postImage,isImage: isImage,),
+          ThreadContent(threadId: threadId, contentText: contentText,postImage: postImage,isImage: isImage,),
           const SizedBox(height: 8.0),
           ThreadLikeReplies(likes: likes, replies: replies),
           const Divider(

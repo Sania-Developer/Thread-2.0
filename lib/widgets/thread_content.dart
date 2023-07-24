@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:instagram_thread/util/colors.dart';
+import 'package:provider/provider.dart';
+
+import '../providers/likeProvider.dart';
 
 class ThreadContent extends StatelessWidget {
   ThreadContent({
@@ -9,14 +12,20 @@ class ThreadContent extends StatelessWidget {
     required this.contentText,
     required this.postImage,
     required this.isImage,
+    required this.threadId,
   }) : super(key: key);
 
   final String contentText;
   final String? postImage;
   final bool isImage;
+  final int threadId;
 
   @override
   Widget build(BuildContext context) {
+
+    var likeProvider = Provider.of<LikeProvider>(context);
+    bool isLiked = likeProvider.isLiked(threadId);
+
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
         final availableWidth = constraints.maxWidth;
@@ -73,7 +82,20 @@ class ThreadContent extends StatelessWidget {
                       children: [
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 5.0),
-                          child: Icon(Icons.favorite_outline_rounded, color: AppColor.white, size: 27,),
+                          child: GestureDetector(
+                            onTap: () {
+                              if (isLiked) {
+                                likeProvider.unlike(threadId);
+                              } else {
+                                likeProvider.like(threadId);
+                              }
+                            },
+                            child: Icon(
+                              isLiked ? Icons.favorite_rounded : Icons.favorite_border_rounded,
+                              color: isLiked ? Colors.red : AppColor.white,
+                              size: 27,
+                            ),
+                          ),
                         ),
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 5.0),
